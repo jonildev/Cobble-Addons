@@ -6,9 +6,9 @@ const msbwarp = new Thread(() => {
     ChatLib.command("warp island")
     Thread.sleep(3000 + Math.floor(Math.random() * Settings.timeoutDuration))
     ChatLib.command("warp camp")
-    Thread.sleep(Math.floor(Math.random() * Settings.timeoutDuration))
-    ChatLib.command("tunnels", true)
+    Thread.sleep(1000 + Math.floor(Math.random() * Settings.timeoutDuration))
     ChatLib.chat(`${PREFIX} Restarting the Macro!`)
+    ChatLib.command("tunnels", true)
 })
 
 register("chat", () => {
