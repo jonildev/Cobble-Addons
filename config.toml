@@ -1,0 +1,20 @@
+
+[general]
+
+	[general.qol]
+		mineshaft_hider = false
+		anti_limbo = false
+		warp_msb = true
+		player_hider = false
+
+[warp-out]
+	warp_out_delay = 1962
+	toggle = false
+
+[warper]
+	warp_-_out = false
+	warp_msb = false
+
+	[warper.cd]
+		warp_out_delay = 500
+
