@@ -11,7 +11,7 @@ register("command", () => {
     Settings.openGUI()
 }).setName("Cobbleaddons").setAliases(["cobble", "ca", "co"])
 
-import request from "../../requestV2"
+import request from "../requestV2"
 
 const PREFIX = `&f[&bCobble Addons&f]`;
 

@@ -14,7 +14,7 @@ import {
 
 @Vigilant("Cobble-Addons", "Cobble Addons", {
     getCategoryComparator: () => (a, b) => {
-        const categories = ["General", "Warp-Out"];
+        const categories = ["General", "Warper"];
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
 })
@@ -58,7 +58,7 @@ class Settings {
     antilimbo = false
 
     @SwitchProperty({
-        name: "Warp - Out",
+        name: "Auto Warp Out",
         description: "Warps out if a blacklisted player joines the lobby",
         category: "Warper",
     })
@@ -75,7 +75,7 @@ class Settings {
         name: "Warp Out Delay",
         description: "Max Delay before warping out.",
         category: "Warper",
-        subcategory: "cd",
+        subcategory: "Cooldown",
         min: 0,
         max: 10000
     })
