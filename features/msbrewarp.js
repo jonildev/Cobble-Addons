@@ -4,7 +4,7 @@ const PREFIX = `&f[&bCobble Addons&f]`;
 const msbwarp = new Thread(() => {
     ChatLib.command("tunnels", true)
     ChatLib.command("warp island")
-    Thread.sleep(2500 + Math.floor(Math.random() * Settings.timeoutDuration))
+    Thread.sleep(3000 + Math.floor(Math.random() * Settings.timeoutDuration))
     ChatLib.command("warp camp")
     Thread.sleep(Math.floor(Math.random() * Settings.timeoutDuration))
     ChatLib.command("tunnels", true)
