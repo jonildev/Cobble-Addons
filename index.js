@@ -13,19 +13,19 @@ register("command", () => {
 
 import request from "../../requestV2"
 
-const prefix = "&8[&2Cobble&8]&7";
+const PREFIX = `&f[&bCobble Addons&f]`;
 
 
 export const checkForUpdate = () => {
     return request({
-        url: `https://api.github.com/repos/theauhh/cobble/releases/latest`,
+        url: `https://github.com/jonildev/Cobble-Addons/releases/latest`,
         json: true 
     }).then((res) => {
         let version = res.tag_name
 
         if(version == null) { return false; }
         if(version.replace("v", "") == JSON.parse(FileLib.read("Cobble Addons", "metadata.json")).version) { return false; }
-        new TextComponent(`${prefix}&a A new update for cobble addons is avaliable!\n&aChanges:&7 ${res.body.replace("\n", "\n&7")}`).setHover("show_text", "&7Download update").setClick("open_url", "https://github.com/theauhh/cobble/releases/latest").chat()
+        new TextComponent(`${PREFIX}&a A new update for cobble addons is avaliable!\n&aChanges:&7 ${res.body.replace("\n", "\n&7")}`).setHover("show_text", "&7Download update").setClick("open_url", "https://github.com/jonildev/Cobble-Addons/releases/latest").chat()
         return true;
     })
     .catch(e => {
@@ -33,9 +33,3 @@ export const checkForUpdate = () => {
         return null;
     });
 }
-
-export function printObjectKeys(obj) {
-    Object.keys(obj).forEach(key => {
-      console.log(key);
-    });
-  }

@@ -12,7 +12,7 @@ import {
     @NumberProperty,
 } from '../Vigilance/index';
 
-@Vigilant("Cobble Addons", "Cobble Addons", {
+@Vigilant("Cobble-Addons", "Cobble Addons", {
     getCategoryComparator: () => (a, b) => {
         const categories = ["General", "Warp-Out"];
         return categories.indexOf(a.name) - categories.indexOf(b.name);

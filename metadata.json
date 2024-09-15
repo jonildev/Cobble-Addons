@@ -1,7 +1,7 @@
 {
-  "name": "Cobble Addons",
+  "name": "Cobble-Addons",
   "creator": "Jonily",
   "entry": "index.js",
   "version": "0.0.1",
-  "requires": ["Vigilance"]
+  "requires": ["Vigilance", "requestv2"]
 }
