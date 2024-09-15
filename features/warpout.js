@@ -16,7 +16,7 @@ register("renderEntity", (entity, p, pt, e) => {
 
     const playerName = entity.getName();
     
-    if (blacklist.includes(playerName) && !messageSent[playerName]) {
+    if (blacklist.includes(playerName) && !messageSent[playerName] && !Player.getName()) {
         messageSent[playerName] = true;
         
             ChatLib.chat(`${PREFIX} &c${playerName} &ais in the lobby! Warping Out!`);
