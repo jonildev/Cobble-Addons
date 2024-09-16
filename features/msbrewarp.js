@@ -37,7 +37,7 @@ function warpandwait(command, locCheck, maxRetries = Settings.maxtries, delay = 
 
     warpThread.start();
 }
-
+/*skidded from jonil*/
 const msbwarp = new Thread(() => {
     warpandwait("warp island", isInPrivateIsland);
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
