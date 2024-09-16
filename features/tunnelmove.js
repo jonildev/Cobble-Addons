@@ -1,3 +1,5 @@
+import { PREFIX } from "../config"
+
 register("command", (number) => {
     if (!number) {
         ChatLib.chat(`&f[&bAuto Warp-Out&f] &aPlease provide a number.`);
@@ -5,5 +7,5 @@ register("command", (number) => {
     }
     ChatLib.command(`tunnelminer remove ${number}`, true)
     ChatLib.command(`tunnelminer add ${number}`, true)
-    ChatLib.chat(`&f[&bCobble Addons&f] &a Moved Waypoint ${number}`);
+    ChatLib.chat(`${PREFIX} &a Moved Waypoint ${number}`);
 }).setName(`tunnelmove`)

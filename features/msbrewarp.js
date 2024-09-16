@@ -1,27 +1,31 @@
 import Settings from "../config"
+import { warpandwait } from "../utils/warpandwait"
 import Skyblock from "Bloomcore/Skyblock"
-const PREFIX = `&f[&bCobble Addons&f]`;
+import { PREFIX } from "../config";
 
+function isInGlaciteTunnels() {
+    return Player.getZ() > 185 && Skyblock.area === "Dwarven Mines";
+}
+
+function isInPrivateIsland() {
+    return Skyblock.area === "Private Island";
+}
 
 const msbwarp = new Thread(() => {
-    ChatLib.command("tunnels", true)
-    if(Skyblock.area !="Private Island") {
-        setTimeout(() => {
-            ChatLib.command("warp island")
-        },  Math.floor(Settings.timeoutDuration + Math.random() * 1000))
+    ChatLib.command("tunnels", true);
+    warpandwait("warp island", isInPrivateIsland);
+    Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
+    warpandwait("warp camp", isInGlaciteTunnels);
+    Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
+    if (isInGlaciteTunnels()) {
+        ChatLib.chat(`${PREFIX} Restarting the Macro!`);
+        ChatLib.command("tunnels", true);
     }
-    if(Skyblock.area !="Glacite Tunnels") {
-        setTimeout(() => {
-            ChatLib.command("warp camp")    
-        },  Math.floor(Settings.timeoutDuration + Math.random() * 1000))
-    }
-    Thread.sleep(Settings.timeoutDuration + Math.random() * 1000)
-    ChatLib.chat(`${PREFIX} Restarting the Macro!`)
-    ChatLib.command("tunnels", true)
-})
+});
+
 
 register("chat", () => {
     if (!Settings.warpmsb) return;
-        ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`)
-        msbwarp.start()
-}).setCriteria("Your Mining Speed Boost has expired!")
+    ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`);
+    msbwarp.start();
+}).setCriteria("Your Mining Speed Boost has expired!");

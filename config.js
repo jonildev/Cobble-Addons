@@ -23,12 +23,10 @@ class Settings {
         this.initialize(this)
         this.setCategoryDescription("General",
             `
-        &b&l&nCobble Addons
+        §0[§bIgloo Addons§0] §f
 
 
-        &bJonil is very cool and cool
-        And maybe cobble
-        RIP to seth
+        &6Seth is very awesome
         `
         )
 
@@ -43,7 +41,7 @@ class Settings {
 
     @SwitchProperty({
         name: "Mineshaft Hider",
-        description: "Hides and remvoes hitbox of Player",
+        description: "Hides and remvoes hitbox of Mineshafts",
         category: "General",
         subcategory: "QOL"
     })
@@ -73,14 +71,35 @@ class Settings {
 
     @SliderProperty({
         name: "Warp Out Delay",
-        description: "Max Delay before warping out.",
+        description: "Minimum Delay before warping out. (+- 1000ms)",
         category: "Warper",
-        subcategory: "Cooldown",
+        subcategory: "Misc",
         min: 0,
         max: 10000
     })
-    timeoutDuration = 500;
+    timeoutDuration = 3000;
+
+    @SliderProperty({
+        name: "Warp Retry Delay",
+        description: "Sets delay between the Warp Retries before it tries to warp out.",
+        category: "Warper",
+        subcategory: "Misc",
+        min: 0,
+        max: 10000
+    })
+    retrydelay = 3000;
+
+    @SliderProperty({
+        name: "Warp Retries",
+        description: "Sets how many times it tries to warp out. After starting failsafes.",
+        category: "Warper",
+        subcategory: "Misc",
+        min: 0,
+        max: 500
+    })
+    maxtries = 10;
+
 }
 export default new Settings()
 
-export const PREFIX = "&f[&bAuto Warp-Out&f]"
+export const PREFIX = `&f[&bCobble Addons&f]`
