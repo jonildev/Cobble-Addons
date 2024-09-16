@@ -1,5 +1,4 @@
 import Settings from "../config"
-import { warpandwait } from "../utils/warpandwait"
 import Skyblock from "Bloomcore/Skyblock"
 import { PREFIX } from "../config";
 
@@ -11,18 +10,38 @@ function isInPrivateIsland() {
     return Skyblock.area === "Private Island";
 }
 
+function warpandwait(command, locCheck, maxRetries = Settings.maxtries, delay = Settings.retrydelay) {
+    let retries = 0;
+
+    const warpThread = new Thread(() => {
+        if (isInGlaciteTunnels()) {
+            ChatLib.command("tunnels", true);
+        }
+        ChatLib.command(command);
+        while (!locCheck() && retries < maxRetries) {
+            Thread.sleep(delay);
+            retries++;
+            ChatLib.chat(`${PREFIX} Retrying warp (${retries}/${maxRetries})...`);
+            ChatLib.command(command);
+        }
+        if (isInGlaciteTunnels()) {
+        ChatLib.chat(`${PREFIX} Restarting the Macro!`);
+        ChatLib.command("tunnels", true);
+        }
+        if (retries === maxRetries) {
+            ChatLib.chat(`${PREFIX} Failed to reach the warp destination after ${maxRetries} attempts.`);
+        }
+    });
+
+    warpThread.start();
+}
+
 const msbwarp = new Thread(() => {
-    ChatLib.command("tunnels", true);
     warpandwait("warp island", isInPrivateIsland);
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
     warpandwait("warp camp", isInGlaciteTunnels);
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
-    if (isInGlaciteTunnels()) {
-        ChatLib.chat(`${PREFIX} Restarting the Macro!`);
-        ChatLib.command("tunnels", true);
-    }
 });
-
 
 register("chat", () => {
     if (!Settings.warpmsb) return;
