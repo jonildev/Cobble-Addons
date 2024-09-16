@@ -24,10 +24,12 @@ function warpandwait(command, locCheck, maxRetries = Settings.maxtries, delay = 
             ChatLib.chat(`${PREFIX} Retrying warp (${retries}/${maxRetries})...`);
             ChatLib.command(command);
         }
-        if (isInGlaciteTunnels()) {
-        ChatLib.chat(`${PREFIX} Restarting the Macro!`);
-        ChatLib.command("tunnels", true);
-        }
+        setTimeout(() => {
+            if (isInGlaciteTunnels()) {
+                ChatLib.chat(`${PREFIX} Restarting the Macro!`);
+                ChatLib.command("tunnels", true);
+            }
+        }, 1000);
         if (retries === maxRetries) {
             ChatLib.chat(`${PREFIX} Failed to reach the warp destination after ${maxRetries} attempts.`);
         }
