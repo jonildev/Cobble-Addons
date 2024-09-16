@@ -95,7 +95,7 @@ class Settings {
         category: "Warper",
         subcategory: "Misc",
         min: 0,
-        max: 500
+        max: 100
     })
     maxtries = 10;
 
