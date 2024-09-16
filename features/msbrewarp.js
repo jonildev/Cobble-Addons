@@ -1,12 +1,21 @@
 import Settings from "../config"
+import Skyblock from "Bloomcore/Skyblock"
 const PREFIX = `&f[&bCobble Addons&f]`;
+
 
 const msbwarp = new Thread(() => {
     ChatLib.command("tunnels", true)
-    ChatLib.command("warp island")
-    Thread.sleep(3000 + Math.floor(Math.random() * Settings.timeoutDuration))
-    ChatLib.command("warp camp")
-    Thread.sleep(1000 + Math.floor(Math.random() * Settings.timeoutDuration))
+    if(Skyblock.area !="Private Island") {
+        setTimeout(() => {
+            ChatLib.command("warp island")
+        },  Math.floor(Settings.timeoutDuration + Math.random() * 1000))
+    }
+    if(Skyblock.area !="Glacite Tunnels") {
+        setTimeout(() => {
+            ChatLib.command("warp camp")    
+        },  Math.floor(Settings.timeoutDuration + Math.random() * 1000))
+    }
+    Thread.sleep(Settings.timeoutDuration + Math.random() * 1000)
     ChatLib.chat(`${PREFIX} Restarting the Macro!`)
     ChatLib.command("tunnels", true)
 })
