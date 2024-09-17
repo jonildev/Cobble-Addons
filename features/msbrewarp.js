@@ -54,4 +54,4 @@ register("chat", () => {
     if (!idle()) return;
     ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`);
     msbwarp.start();
-}).setCriteria("Your Mining Speed Boost has expired!");
+}).setCriteria(`${Settings.msbability} Sheer Force is now available!`);

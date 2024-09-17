@@ -50,8 +50,7 @@ class Settings {
     @SwitchProperty({
         name: "Anti Limbo",
         description: "It goes into skyblock and starts tunnel mining",
-        category: "General",
-        subcategory: "QOL",
+        category: "Warper",
     })
     antilimbo = false
 
@@ -98,6 +97,30 @@ class Settings {
         max: 100
     })
     maxtries = 10;
+
+    @SwitchProperty({
+        name: "Ability User",
+        description: "Toggle",
+        category: "General",
+        subcategory: "Misc",
+    })
+    ability = false
+
+    @TextProperty({
+        name: "Ability Item",
+        description: "Sets to which item it swaps.",
+        category: "General",
+        subcategory: "Misc",
+    })
+    dbility = ``
+
+    @TextProperty({
+        name: "Ability",
+        description: "Sets at which ability it triggers.",
+        category: "General",
+        subcategory: "Misc",
+    })
+    msbability = ``
 
 }
 export default new Settings()
