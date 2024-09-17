@@ -2,6 +2,6 @@
   "name": "Cobble-Addons",
   "creator": "Jonily",
   "entry": "index.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "requires": ["Vigilance", "requestv2", "Bloomcore"]
 }
