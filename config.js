@@ -23,10 +23,10 @@ class Settings {
         this.initialize(this)
         this.setCategoryDescription("General",
             `
-        §0[§bIgloo Addons§0] §f
-
-
-        &6Seth is very awesome
+        &b&l&nCobble Addons
+        &bJonil is very cool and cool
+        And maybe cobble
+        RIP to seth
         `
         )
 
