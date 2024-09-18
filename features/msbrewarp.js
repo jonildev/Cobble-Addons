@@ -54,4 +54,4 @@ register("chat", () => {
     if (!idle()) return;
     ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`);
     msbwarp.start();
-}).setCriteria(/^(.+) is now available!/i)
+}).setCriteria(/^(.+) has expired!/i)
