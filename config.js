@@ -106,22 +106,6 @@ class Settings {
     })
     ability = false
 
-    @TextProperty({
-        name: "Ability Item",
-        description: "Sets to which item it swaps.",
-        category: "General",
-        subcategory: "Misc",
-    })
-    dbility = ``
-
-    @TextProperty({
-        name: "Ability",
-        description: "Sets at which ability it triggers.",
-        category: "General",
-        subcategory: "Misc",
-    })
-    msbability = ``
-
 }
 export default new Settings()
 

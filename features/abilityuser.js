@@ -1,3 +1,8 @@
 import Settings from "../config"
 
-ChatLib.chat(Player.getHeldItem())
+register("worldload", () => {
+    if (!Settings.ability) return;
+        let held = Player.getHeldItem().getName()
+        ChatLib.say(`${held}`)
+
+})
