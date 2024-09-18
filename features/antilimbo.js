@@ -1,13 +1,15 @@
 import Settings from "../config"
+import Skyblock from "Bloomcore/Skyblock"
+import { PREFIX } from "../config";
 
+let inSkyblock = false
 const sbTitles = [
     "skyblock",
     "skiblock" // For april fools
 ]
 
-let inSkyblock = false
+inSkyblock = sbTitles.some(a => Scoreboard.getTitle().removeFormatting().toLowerCase().includes(a))
 
-inSkyblock = sbTitles.some(a => Scoreboard.getTitle().removeFormatting().toLowerCase().includes(a)) || bcData.forceInSkyblock
 
 const limbo = new Thread(() => {
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
@@ -23,6 +25,6 @@ const limbo = new Thread(() => {
 register("step", () => {
     if (!Settings.antilimbo) return;
     if (!inSkyblock) {
-        limbo.start();
+        limbo.start()
     }
 })
