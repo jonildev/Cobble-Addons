@@ -1,8 +1,7 @@
 import Settings from "../config"
 
-register("worldload", () => {
+register("chat", () => {
     if (!Settings.ability) return;
         let held = Player.getHeldItem().getName()
-        ChatLib.say(`${held}`)
-
-})
+        ChatLib.say(`.use ${held}`)
+}).setCriteria(/^(.+) is now available!/i)
