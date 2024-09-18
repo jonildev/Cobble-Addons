@@ -45,13 +45,8 @@ const msbwarp = new Thread(() => {
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
 });
 
-function idle() {
-    ChatLib.getChatMessage("✆ RING... ")
-}
-
 register("chat", () => {
     if (!Settings.warpmsb) return;
-    if (!idle()) return;
     ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`);
     msbwarp.start();
 }).setCriteria(/^(.+) has expired!/i)
