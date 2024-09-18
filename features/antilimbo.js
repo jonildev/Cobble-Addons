@@ -1,17 +1,8 @@
 import Settings from "../config"
-import Skyblock from "Bloomcore/Skyblock"
 import { PREFIX } from "../config";
 
-let inSkyblock = false
-const sbTitles = [
-    "skyblock",
-    "skiblock" // For april fools
-]
-
-inSkyblock = sbTitles.some(a => Scoreboard.getTitle().removeFormatting().toLowerCase().includes(a))
-
-
 const limbo = new Thread(() => {
+    ChatLib.chat(`${PREFIX} detected in limbo! Warping back!`)
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
     ChatLib.command("lobby");
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
@@ -22,9 +13,7 @@ const limbo = new Thread(() => {
     ChatLib.command("tunnels", true)
 })
 
-register("step", () => {
+register("chat", () => {
     if (!Settings.antilimbo) return;
-    if (!inSkyblock) {
-        limbo.start()
-    }
-})
+    limbo.start()
+}).setCriteria(`/limbo for more information.`)
