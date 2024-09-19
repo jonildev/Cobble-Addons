@@ -98,14 +98,6 @@ class Settings {
     })
     maxtries = 10;
 
-    @SwitchProperty({
-        name: "Ability User",
-        description: "Toggle",
-        category: "General",
-        subcategory: "Misc",
-    })
-    ability = false
-
 }
 export default new Settings()
 
