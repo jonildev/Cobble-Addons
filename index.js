@@ -1,7 +1,7 @@
 import Settings from "./config";
 
 import "./features/antilimbo"
-import "./features/msbrewarp"
+import "./features/abilitywarp"
 import "./features/playerhider"
 import "./features/tunnelmove"
 import "./features/warpout"

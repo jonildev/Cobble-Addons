@@ -38,7 +38,7 @@ function warpandwait(command, locCheck, maxRetries = Settings.maxtries, delay = 
     warpThread.start();
 }
 
-const msbwarp = new Thread(() => {
+const abilitywarp = new Thread(() => {
     warpandwait("warp island", isInPrivateIsland);
     Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000));
     warpandwait("warp camp", isInGlaciteTunnels);
@@ -46,7 +46,7 @@ const msbwarp = new Thread(() => {
 });
 
 register("chat", () => {
-    if (!Settings.warpmsb) return;
-    ChatLib.chat(`${PREFIX} MSB expired! Warping Out!`);
-    msbwarp.start();
+    if (!Settings.abilitywarp) return;
+    ChatLib.chat(`${PREFIX} ability expired! Warping Out!`);
+    abilitywarp.start();
 }).setCriteria(/^(.+) has expired!/i)

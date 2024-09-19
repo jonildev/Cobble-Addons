@@ -66,7 +66,7 @@ class Settings {
         description: "Warps out after ur ability expired.",
         category: "Warper",
     })
-    warpmsb = false
+    abilitywarp = false
 
     @SliderProperty({
         name: "Warp Out Delay",
