@@ -62,8 +62,8 @@ class Settings {
     warpOut = false
 
     @SwitchProperty({
-        name: "Warp msb",
-        description: "Warps out after ur msb expired.",
+        name: "Ability Warp",
+        description: "Warps out after ur ability expired.",
         category: "Warper",
     })
     warpmsb = false
