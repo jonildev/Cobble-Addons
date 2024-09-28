@@ -1,6 +1,7 @@
 import Settings from "../config";
 import { PREFIX } from "../config";
 const blacklistContent = FileLib.getUrlContent('https://raw.githubusercontent.com/jonildev/blacklist/main/blacklist');
+import Skyblock from "Bloomcore/Skyblock"
 const blacklist = blacklistContent.split(/\r?\n/).filter(name => name.length > 0);
 let messageSent = {};
 
