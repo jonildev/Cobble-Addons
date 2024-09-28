@@ -5,7 +5,7 @@ register("command", (number, mode) => {
         ChatLib.chat(`&f[&bAuto Warp-Out&f] &aPlease provide a number.`);
         return;
     }
-    ChatLib.command(`tunnelminer remove ${mode} ${number}`, true)
+    ChatLib.command(`tunnelminer remove ${number}`, true)
     ChatLib.command(`tunnelminer add ${mode} ${number}`, true)
     ChatLib.chat(`${PREFIX} &a Moved Waypoint ${mode} ${number}`);
 }).setName(`tunnelmove`)

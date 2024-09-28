@@ -4,7 +4,13 @@ const blacklistContent = FileLib.getUrlContent('https://raw.githubusercontent.co
 const blacklist = blacklistContent.split(/\r?\n/).filter(name => name.length > 0);
 let messageSent = {};
 
+function isInGlaciteTunnels() {
+    return Player.getZ() > 185 && Skyblock.area === "Dwarven Mines";
+}
+
 function warpOut() {
+
+    if (!isInGlaciteTunnels) return;
     setTimeout(() =>
         ChatLib.command("warp island"),
     (Math.floor(Math.random() * Settings.timeoutDuration)));
