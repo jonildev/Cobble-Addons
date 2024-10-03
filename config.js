@@ -48,6 +48,14 @@ class Settings {
     mineshaft = false
 
     @SwitchProperty({
+        name: "Lobby Markingg",
+        description: "Marks your previous lobbys. /clearmarks to reset",
+        category: "General",
+        subcategory: "QOL"
+    })
+    lobbyMarking = false
+
+    @SwitchProperty({
         name: "Anti Limbo",
         description: "It goes into skyblock and starts tunnel mining",
         category: "Warper",
