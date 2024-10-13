@@ -1,22 +1,23 @@
 import Settings from "../config"
 import { PREFIX } from "../config";
 
+const sbwarp = new Thread(() => {
+    Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
+    ChatLib.command("lobby")
+    Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
+    ChatLib.command("play sb")
+})
+
 const limbo = new Thread(() => {
     ChatLib.chat(`${PREFIX} detected in limbo! Warping back!`)
     
     switch(Settings.limboOption) {
         case 0:
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("lobby")
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("play sb")
+            sbwarp.start()
             break;
 
         case 1:
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("lobby")
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("play sb")
+            sbwarp.start()
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
             ChatLib.command("warp camp")
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
@@ -24,10 +25,7 @@ const limbo = new Thread(() => {
             break;
         
         case 2:
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("lobby")
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("play sb")
+            sbwarp.start()
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
             ChatLib.command("warp camp")
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
@@ -35,10 +33,7 @@ const limbo = new Thread(() => {
             break;
         
         case 3:
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("lobby")
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("play sb")
+            sbwarp.start()
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
             ChatLib.command("warp forge")
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
@@ -46,10 +41,7 @@ const limbo = new Thread(() => {
             break;
         
         case 4:
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("lobby")
-            Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
-            ChatLib.command("play sb")
+            sbwarp.start()
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
             ChatLib.command("warp forge")
             Thread.sleep(Settings.timeoutDuration + Math.floor(Math.random() * 1000))
