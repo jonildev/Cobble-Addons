@@ -3,13 +3,11 @@ import {
     @CheckboxProperty,
     Color,
     @ColorProperty,
-    @PercentSliderProperty,
     @SelectorProperty,
     @SwitchProperty,
     @TextProperty,
     @Vigilant,
     @SliderProperty,
-    @NumberProperty,
 } from '../Vigilance/index';
 
 @Vigilant("Cobble Config", "Cobble Addons", {
@@ -18,6 +16,7 @@ import {
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
 })
+
 class Settings {
     constructor() {
         this.initialize(this)
@@ -59,8 +58,19 @@ class Settings {
         name: "Anti Limbo",
         description: "It goes into skyblock and starts tunnel mining",
         category: "Warper",
+        subcategory: "Anti Limbo"
     })
     antilimbo = false
+
+	@SelectorProperty({
+		name: "Anti Limbo Options",
+		description: "What polar macro to restart.",
+		options: ["Skyblock", "Tunnel Miner", "Glacite Commission Macro", "Commission Macro", "Dwarven Miner"],
+		category: "Warper",
+		subcategory: "Anti Limbo"
+	})
+	limboOption = 0;
+
 
     @SwitchProperty({
         name: "Auto Warp Out",
