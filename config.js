@@ -47,7 +47,7 @@ class Settings {
     mineshaft = false
 
     @SwitchProperty({
-        name: "Lobby Markingg",
+        name: "Lobby Marking",
         description: "Marks your previous lobbys. /clearmarks to reset",
         category: "General",
         subcategory: "QOL"

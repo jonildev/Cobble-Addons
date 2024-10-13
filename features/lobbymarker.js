@@ -6,7 +6,7 @@ register("chat", (server) => {
     if(!Settings.lobbyMarking) return
     if(lobbies.indexOf(server) > 0)
         setTimeout(() => {
-            ChatLib.chat(`${PREFIX} &4You've been in this lobby!`)
+            ChatLib.chat(`${PREFIX} &cYou've been in this lobby!`)
           }, 50)
     else
         lobbies.push(server)
