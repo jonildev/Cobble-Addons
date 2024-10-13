@@ -23,6 +23,9 @@ class Settings {
         this.setCategoryDescription("General",
             `
         &b&l&nCobble Addons
+        &bJonil is very cool and cool
+        And maybe cobble
+        RIP to seth
         `
         )
 
